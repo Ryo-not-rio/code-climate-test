@@ -31,5 +31,6 @@ jobs:
         with:
           coverageCommand: go test -v ./... -coverprofile=c.out
           debug: true
-          prefix: github.com/Ryo-not-rio/code-climate-test
+          prefix: github.com/Ryo-not-rio/code-climate-test/mainpkg
+          workingDirectory: ./mainpkg
 
