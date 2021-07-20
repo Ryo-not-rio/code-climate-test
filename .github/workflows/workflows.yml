@@ -28,7 +28,9 @@ jobs:
         run: go test -v ./... -coverprofile=c.out
 
       - name: after test
-        run: sudo ./cc-test-reporter after-build --prefix=github.com/Ryo-not-rio/code-climate-test
+        run: |
+          ls 
+          sudo ./cc-test-reporter after-build --prefix=github.com/Ryo-not-rio/code-climate-test
 
       - name: publish code coverage
         uses: paambaati/codeclimate-action@v2.7.5
