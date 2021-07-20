@@ -21,6 +21,9 @@ jobs:
         with:
           go-version: 1.16
 
+      - name: cat
+        run: cat ./cc-test-reporter
+
       - name: Build
         run: go build -v ./...
 
@@ -28,7 +31,7 @@ jobs:
         run: go test -v ./... -coverprofile=c.out
 
       - name: after test
-        run: CC_TEST_REPORTER_ID=${{ env.cc_id }} sudo cc-test-reporter after-build --prefix=github.com/Ryo-not-rio/code-climate-test
+        run: CC_TEST_REPORTER_ID=${{ env.cc_id }} sudo ./cc-test-reporter after-build --prefix=github.com/Ryo-not-rio/code-climate-test
 
       - name: publish code coverage
         uses: paambaati/codeclimate-action@v2.7.5
