@@ -30,6 +30,10 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: '12'
+
+      - name: Build code
+        run: go build -v ./...
+        
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v2.7.5
         env:
