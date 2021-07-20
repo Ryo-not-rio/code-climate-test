@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Ryo-not-rio/code-climate-test/issues"
   },
-  "homepage": "https://github.com/Ryo-not-rio/code-climate-test#readme"
+  "homepage": "https://github.com/Ryo-not-rio/code-climate-test#readme",
+  "dependencies": {
+    "coverage": "^0.4.1"
+  }
 }
