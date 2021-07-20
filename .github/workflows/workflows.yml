@@ -27,10 +27,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test & publish code coverage
-      uses: paambaati/codeclimate-action@v2.7.5
-      env:
-        CC_TEST_REPORTER_ID: 71ea1d39c818cae21ebab378ebac0d16f613325588766d03c3fa146876bc9e15
-      with:
-        coverageCommand: npm run coverage
-        debug: true
+        uses: paambaati/codeclimate-action@v2.7.5
+        env:
+          CC_TEST_REPORTER_ID: 71ea1d39c818cae21ebab378ebac0d16f613325588766d03c3fa146876bc9e15
+        with:
+          coverageCommand: npm run coverage
+          debug: true
 
