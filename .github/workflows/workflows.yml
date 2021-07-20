@@ -1,35 +1,35 @@
-# name: Go func tests
+name: Go func tests
 
-# env:
-#   cc_id: "71ea1d39c818cae21ebab378ebac0d16f613325588766d03c3fa146876bc9e15"
-#   code_dir: "mainpkg"
+env:
+  cc_id: "71ea1d39c818cae21ebab378ebac0d16f613325588766d03c3fa146876bc9e15"
+  code_dir: "mainpkg"
 
-# on:
-#   push:
-#     branches: [ master ]
-#   pull_request:
-#     branches: [ master ]
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
-# jobs:
-#   build-and-test-go:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2
+jobs:
+  build-and-test-go:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
 
-#       - name: Set up Go
-#         uses: actions/setup-go@v2
-#         with:
-#           go-version: 1.16
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.16
 
-#       - name: Build
-#         run: go build -v ./...
+      - name: Build
+        run: go build -v ./...
 
-#       - name: publish code coverage
-#         uses: paambaati/codeclimate-action@v2.7.5
-#         env:
-#           CC_TEST_REPORTER_ID: ${{ env.cc_id }}
-#         with:
-#           coverageCommand: go test -v ./... -coverprofile=c.out
-#           debug: true
-#           prefix: github.com/Ryo-not-rio/code-climate-test
+      - name: publish code coverage
+        uses: paambaati/codeclimate-action@v2.7.5
+        env:
+          CC_TEST_REPORTER_ID: ${{ env.cc_id }}
+        with:
+          coverageCommand: go test -v ./... -coverprofile=c.out
+          debug: true
+          prefix: github.com/Ryo-not-rio/code-climate-test
 
