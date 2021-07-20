@@ -29,7 +29,7 @@ jobs:
 
       - name: after test
         run: |
-          ls 
+          sudo ls 
           sudo ./cc-test-reporter after-build --prefix=github.com/Ryo-not-rio/code-climate-test
 
       - name: publish code coverage
