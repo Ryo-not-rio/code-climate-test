@@ -1,4 +1,4 @@
-module mainpkg
+module code-climate-test
 
 go 1.16
 
