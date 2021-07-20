@@ -24,17 +24,12 @@ jobs:
       - name: Build
         run: go build -v ./...
 
-      - name: Test
-        run: |
-          go test -v ./... -coverprofile=c.out
-          echo ${{ env.cc_id }}
-
       - name: publish code coverage
         uses: paambaati/codeclimate-action@v2.7.5
         env:
           CC_TEST_REPORTER_ID: ${{ env.cc_id }}
         with:
-          coverageCommand: 
+          coverageCommand: go test -v ./... -coverprofile=c.out
           debug: true
           prefix: github.com/Ryo-not-rio/code-climate-test
 
