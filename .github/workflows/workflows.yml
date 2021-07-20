@@ -43,7 +43,7 @@ jobs:
         env:
           CC_TEST_REPORTER_ID: ${{ env.cc_id }}
         with:
-          coverageCommand: npm run coverage
+          coverageCommand: go vet
           debug: true
           workingDirectory: ${{ env.code_dir }}
 
