@@ -7,19 +7,30 @@ on:
     branches: [ master ]
 
 jobs:
-
-  build:
+  build-and-test-go:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Set up Go
-      uses: actions/setup-go@v2
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.16
+
+      - name: Build
+        run: go build -v ./...
+
+      - name: Test
+        run: go test -v ./...
+
+  code-climate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test & publish code coverage
+      uses: paambaati/codeclimate-action@v2.7.5
+      env:
+        CC_TEST_REPORTER_ID: 71ea1d39c818cae21ebab378ebac0d16f613325588766d03c3fa146876bc9e15
       with:
-        go-version: 1.16
+        coverageCommand: npm run coverage
+        debug: true
 
-    - name: Build
-      run: go build -v ./...
-
-    - name: Test
-      run: go test -v ./...
