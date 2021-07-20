@@ -1,4 +1,8 @@
-name: Go
+name: Go func tests
+
+env:
+  cc_id: "71ea1d39c818cae21ebab378ebac0d16f613325588766d03c3fa146876bc9e15"
+  code_dir: "mainpkg"
 
 on:
   push:
@@ -33,12 +37,13 @@ jobs:
 
       - name: Build code
         run: go build -v ./...
-        
+
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v2.7.5
         env:
-          CC_TEST_REPORTER_ID: 71ea1d39c818cae21ebab378ebac0d16f613325588766d03c3fa146876bc9e15
+          CC_TEST_REPORTER_ID: ${{ env.cc_id }}
         with:
           coverageCommand: npm run coverage
           debug: true
+          workingDirectory: ${{ env.code_dir }}
 
