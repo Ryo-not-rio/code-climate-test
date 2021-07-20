@@ -1,4 +1,4 @@
-module code-climate-test
+module github.com/Ryo-not-rio/code-climate-test
 
 go 1.16
 
