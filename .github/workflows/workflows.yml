@@ -60,5 +60,5 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ env.cc_id }}
         with:
           debug: true
-          coverageLocations: coverage/*.out:Cover
+          coverageLocations: coverage/*.out:cover
 
