@@ -12,6 +12,9 @@ on:
 
 jobs:
   build-and-test-go:
+    strategy:
+      matrix:
+        pkg: [anotherpkg, mainpkg]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -22,14 +25,14 @@ jobs:
           go-version: 1.16
 
       - name: Build
-        run: go build -v ./...
+        run: go build ${{ matrix.pkg }} -v ./...
 
       - name: publish code coverage
         uses: paambaati/codeclimate-action@v2.7.5
         env:
           CC_TEST_REPORTER_ID: ${{ env.cc_id }}
         with:
-          coverageCommand: go test -v ./... -coverprofile=c.out
+          coverageCommand: go test ${{ matrix.pkg }} -v ./... -coverprofile=c.out
           debug: true
-          prefix: github.com/Ryo-not-rio/code-climate-test
+          prefix: github.com/Ryo-not-rio/code-climate-test/${{ matrix.pkg }}
 
