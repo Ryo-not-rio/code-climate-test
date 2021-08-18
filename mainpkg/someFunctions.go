@@ -12,7 +12,7 @@ func gcd(num1 int, num2 int) int {
 	return gcd(num2, num1%num2)
 }
 
-func gcd2(num1 int, num2 int) int {
+func gcd2(num1 int, num2 int) {
 	fmt.Println("HElloooo")
 	fmt.Println("HElloooo")
 	fmt.Println("HElloooo")
