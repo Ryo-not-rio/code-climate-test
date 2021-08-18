@@ -1,4 +1,4 @@
-package mainpkg2
+package mainpkg
 
 import (
 	"testing"
