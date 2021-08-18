@@ -32,6 +32,7 @@ jobs:
         run: |
           mkdir -p coverage
           go test -v ./... -coverprofile=coverage/${{ matrix.pkg }}_coverage.out
+        working-directory: ${{ matrix.pkg }}
           
       - name: Save partial coverage as an artifact
         uses: actions/upload-artifact@v2
