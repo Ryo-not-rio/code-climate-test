@@ -61,4 +61,5 @@ jobs:
         with:
           debug: true
           coverageLocations: coverage/*.out:gocov
+          prefix: github.com/Ryo-not-rio/code-climate-test
 
